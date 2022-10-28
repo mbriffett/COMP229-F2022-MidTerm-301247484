@@ -16,9 +16,7 @@ export function displayBookList(req, res, next) {
 //  GET the Book Details page in order to add a new Book
 export function displayAddPage(req, res, next) {
 
-    /*****************
-    * ADD CODE HERE *
-    *****************/
+    res.render('index', { title: 'Add Book', page: 'books/add', books: booksCollection });
 }
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -31,11 +29,16 @@ export function processAddPage(req, res, next) {
 
 // GET the Book Details page in order to edit an existing Book
 export function displayEditPage(req, res, next) {
+    let id = req.params.id;
+    //if find by id render, else callback the anonymous function to throw error and end response
+    booksModel.findById(id, (err, book) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+    res.render('index', { title: 'Edit Book', page: 'books/edit', book: book });
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
+    });
 }
 
 // POST - process the information passed from the details form and update the document
