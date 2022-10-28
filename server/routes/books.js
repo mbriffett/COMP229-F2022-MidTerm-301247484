@@ -13,7 +13,8 @@ router.get('/books/add', displayAddPage);
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/books/add', processAddPage);
 
-// GET the Book Details page in order to edit an existing Book
+// GET the Book Details page in order to edit an existing Book.  Params passed here are called id 
+//Ex: /books/edit/books[count]._id the _id parameter of item from books collection will be known as id because of :id and will be contained within req.params.id
 router.get('/books/edit/:id', displayEditPage);
 
 // POST - process the information passed from the details form and update the document
