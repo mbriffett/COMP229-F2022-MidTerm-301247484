@@ -1,10 +1,12 @@
+//Matthew Briffett 301247484 COMP229 Midterm Centennial College Fall 2022
+
 // define the book model
 import booksModel from '../models/books.js';
 
 /* GET books List page. READ */
 export function displayBookList(req, res, next) {
     // find all books in the books collection
-    booksModel.find(function(err, booksCollection){
+    booksModel.find((err, booksCollection) => {
         if (err) {
             console.error(err);
             res.end(err);
@@ -61,6 +63,7 @@ export function displayEditPage(req, res, next) {
 // POST - process the information passed from the details form and update the document
 export function processEditPage(req, res, next) {
     //create new contact with same _id attribute as current book on page so no change when updated
+    //req.body pulls from the body of the req (client side) to get the content on the client page (here the form for edit has a hidden type named id which allows it to be referenced through req.body.id.  This is how to get the entered form data and update the correct db object via post on submit)
     let newBook = booksModel({
         _id: req.body.id,
         name: req.body.name,
@@ -84,7 +87,8 @@ export function processEditPage(req, res, next) {
 // GET - process the delete by user id
 export function processDelete(req, res, next) {
     let id = req.params.id;
-    //similar to process edit, this uses the params called id (:id in the router) passed from the a href on delete (books[count]._id passes the _id attribute as params which is called id by router, thus req.params.id contains this value)
+    //similar to process edit, this uses the params called id (:id in the router) passed from the a href on delete (books[count]._id represents the _id attribute which are passed as params which is called id in router (:id), thus req.params.id contains this value)
+    //req.params is params from request (after / in URL usually)
     booksModel.remove({ _id: id }, (err, book) => {
         if (err) {
             console.error(err);
