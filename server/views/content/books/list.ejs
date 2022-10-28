@@ -4,8 +4,10 @@
             <h1>
                 <%= title %>
             </h1>
-         
-            <a href="/books/add" class="btn btn-primary" role="button">
+            <!-- ------------------------ -->
+            <!-- FIX THE ADD BUTTON BELOW -->
+            <!-- ------------------------ -->
+            <a href="" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add a Book</a>
             <br>
             <table class="table table-bordered table-striped table-hover">
@@ -39,17 +41,15 @@
                         <td class="text-center col-1">
                             <%= books[count].price %>
                         </td>
-
-                        <!--edit and delete buttons pass id of item from the db defined in the controller ejs file as books-->
                         <td class="text-center col-1">
-                            <a href="/books/edit/<%= books[count]._id %>"
-                                class="btn btn-primary btn-sm">
-                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                            <!-- ------------------------ -->
+                            <!-- ADD the EDIT BUTTON HERE -->
+                            <!-- ------------------------ -->
                         </td>
                         <td class="text-center col-1">
-                            <a href="/books/delete/<%= books[count]._id %>"
-                                class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i> Delete</a>
+                            <!-- ------------------------ -->
+                            <!-- ADD the DELETE BUTTON HERE -->
+                            <!-- ------------------------ -->
                         </td>
                     </tr>
                     <% } %>
