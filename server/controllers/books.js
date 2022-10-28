@@ -31,14 +31,10 @@ export function processAddPage(req, res, next) {
 
 // GET the Book Details page in order to edit an existing Book
 export function displayEditPage(req, res, next) {
-    let id = req.params.id;
-    //if find by id render, else callback the anonymous function to throw error and end response
-    booksModel.findById(id, (err, contact) => {
-        if (err) {
-            console.error(err);
-            res.end(err);
-        }
-    res.render('index', { title: 'Edit Book', page: 'books/edit', book: booksCollection })
+
+    /*****************
+     * ADD CODE HERE *
+     *****************/
 
 }
 
